@@ -1,0 +1,42 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server-side of <project_name>",
+  "main": "server.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yambakshi/angular12-nodejs-mongodb.git"
+  },
+  "dependencies": {
+    "ajv": "^8.6.3",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongodb": "^4.2.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.5",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0"
+  },
+  "scripts": {
+    "build": "rimraf ./out && tsc",
+    "prestart": "npm run build",
+    "start": "node out/main.js",
+    "dev": "node -r dotenv/config out/main.js",
+    "start:dev": "nodemon",
+    "debug:dev": "nodemon --inspect src/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yam Bakshi",
+  "license": "ISC"
+}
