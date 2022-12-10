@@ -38,6 +38,8 @@ This project was generated with:
    ```
    ng add @nguniversal/express-engine
    ```
+   
+   1. Input `Y` when asked `Would you like to proceed? (Y/n)`
 
 5. Add `NgRx` (state management) ([official instructions](https://ngrx.io/guide/store/install)) - Optional
    ```
