@@ -4,7 +4,7 @@ import { saveUser, getUsers } from '../../app/controllers';
 
 export const router = Router();
 
-// Data
+// Users
 
 router.route('/users/:id?')
     .get(getUsers)
