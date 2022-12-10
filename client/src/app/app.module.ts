@@ -17,7 +17,7 @@ import { PageNotFoundComponent } from '@components/page-not-found/page-not-found
 import { HomePageComponent } from '@components/home-page/home-page.component';
 import { MainHeaderComponent } from '@components/main-header/main-header.component';
 import { ApiHttpInterceptor } from '@interceptors/api.interceptor';
-import { DataResolver } from '@resolvers/data.resolver';
+import { UsersResolver } from '@resolvers/users.resolver';
 
 import { RouterService } from '@services/router.service';
 import { ApiService } from '@services/api.service';
@@ -47,7 +47,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [
     ApiService,
     RouterService,
-    DataResolver,
+    UsersResolver,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: ApiHttpInterceptor,

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from '@components/page-not-found/page-not-found.component';
 import { HomePageComponent } from '@components/home-page/home-page.component';
-import { DataResolver } from '@resolvers/data.resolver';
+import { UsersResolver } from '@resolvers/users.resolver';
 
 const routes: Routes = [{
   path: '',
-  resolve: { resolverResponse: DataResolver },
+  resolve: { resolverResponse: UsersResolver },
   component: HomePageComponent
 },
 {

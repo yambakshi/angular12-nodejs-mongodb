@@ -1,1 +1,1 @@
-export { validateSaveData } from './validate-save-data';
+export { validateSaveUser } from './validate-save-user';

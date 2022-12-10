@@ -1,2 +1,2 @@
-export { getData } from './get-data';
-export { saveData } from './save-data';
+export { getUsers } from './get-users';
+export { saveUser } from './save-user';

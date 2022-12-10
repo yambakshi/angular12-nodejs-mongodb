@@ -1,4 +1,4 @@
-# Project Name - Server
+# Seed - Server
 
 ## Technologies
 
@@ -9,34 +9,67 @@ This project was generated with:
 - MongoDB 4.4.12
 - MongoDB NPM (NodeJS Driver) 4.2.2 ([MongoDB Compatibility](https://www.mongodb.com/docs/drivers/node/current/compatibility/))
 
+## Setup
+`cd` into the project's `server` folder and do the following:
+1. Generate `package.json`
+   ```
+   npm init -y
+   ```
+
+2. Create `src` and `log` folders
+   ```
+   mkdir src log
+   ```
+
+3. Create `.env` file for development environment
+   ```
+   touch .env
+   ```
+
+4. Create `tsconfig.json` and `tslint.json` files
+   ```
+   touch tsconfig.json tslint.json
+   ```
+
+5. Install `typescript@4.3.5` globally
+   ```
+   npm i typescript@4.3.5 -g
+   ```
+
+6. Create entry point file `main.ts`
+   ```
+   touch src/main.ts
+   ```
+
 ## MongoDB
 - Run `MongoDB` shell
    ```
    mongo
    ```
--  Initial login URI
-   ```
-   mongodb://127.0.0.1:27017
-   ```
 
 -  Create DB
    ```
-   use <project_name>
+   use seed-db
    ```
 
 - Create collection
    ```
-   db.createCollection("data")
+   db.createCollection("seed-users")
    ```
 
 - Create 'dbAdmin' user
    ```
-   db.createUser({ user: "yambakshi", pwd: "1234", roles: [{ role: "dbAdmin", db: "<project_name>" }]})
+   db.createUser({ user: "seed-db-admin", pwd: "1234", roles: [{ role: "dbAdmin", db: "seed-db" }]})
    ```
 
 - Drop user
    ```
-   db.dropUser("yambakshi")
+   db.dropUser("seed-db-admin")
+   ```
+
+-  Initial login URI
+   ```
+   mongodb://127.0.0.1:27017
    ```
 
 ## Development
@@ -56,11 +89,11 @@ npm run start:dev
 Run `npm run build` to build the server on local machine.  
 WinSCP `out` and `package.json` into `~/server` on CentOS 7 machine.
 ```
-cd /var/www/html/<project_name>/server
+cd /var/www/html/seed/server
 mv ~/server/* .
 npm i
 mkdir log tmp
 sudo chmod 777 log tmp
 pm2 start out/main.js --name server
-tail -f log/<project_name>.log
+tail -f log/seed.log
 ```

@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Data } from '@models/data';
+import { User } from '@models/user';
 import { ApiService } from '@services/api.service';
 
 
@@ -17,8 +17,8 @@ import { ApiService } from '@services/api.service';
     encapsulation: ViewEncapsulation.None,
 })
 export class HomePageComponent {
-    subscriptions: { data: Subscription } = { data: null };
-    data: Data;
+    subscriptions: { users: Subscription } = { users: null };
+    users: User[];
 
     constructor(
         private titleService: Title,
@@ -32,8 +32,8 @@ export class HomePageComponent {
             }
         });
 
-        this.subscriptions.data = this.apiService.getDataObservable().subscribe((data: Data) => {
-            this.data = data;
+        this.subscriptions.users = this.apiService.getUsersObservable().subscribe((users: User[]) => {
+            this.users = users;
         });
     }
 

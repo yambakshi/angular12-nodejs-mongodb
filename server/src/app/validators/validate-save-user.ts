@@ -1,7 +1,7 @@
 import { ajv } from '../../config';
 
-const saveDataSchema = {
-    title: 'save-data',
+const saveUserSchema = {
+    title: 'save-user',
     type: 'object',
     required: ['name', 'age'],
     properties: {
@@ -10,7 +10,7 @@ const saveDataSchema = {
     }
 };
 
-export function validateSaveData(data: any) {
-    ajv.validate(saveDataSchema, data);
+export function validateSaveUser(user: any) {
+    ajv.validate(saveUserSchema, user);
     return ajv.errors;
 }

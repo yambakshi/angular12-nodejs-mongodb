@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Data } from '@models/data';
+import { User } from '@models/user';
 import { ApiResponse } from '@models/responses';
 
 
@@ -10,7 +10,7 @@ import { ApiResponse } from '@models/responses';
     providedIn: 'root'
 })
 export class ApiService {
-    private dataSubject: Subject<Data>;
+    private usersSubject: Subject<User[]>;
     private httpOptions: {} = {
         headers: {},
         responseType: 'json'
@@ -18,32 +18,32 @@ export class ApiService {
 
     constructor(
         private http: HttpClient,) {
-        this.dataSubject = new Subject<Data>();
+        this.usersSubject = new Subject<User[]>();
     }
 
-    getDataObservable(): Observable<Data> {
-        return this.dataSubject.asObservable();
+    getUsersObservable(): Observable<User[]> {
+        return this.usersSubject.asObservable();
     }
 
-    setData(data: Data): void {
-        this.dataSubject.next(data);
+    setUsers(users: User[]): void {
+        this.usersSubject.next(users);
     }
 
-    getData(): any {
-        return this.http.get('/api/data', this.httpOptions)
+    getUsers(): any {
+        return this.http.get('/api/users', this.httpOptions)
             .pipe(
                 map((res: any) => {
-                    this.setData(res);
+                    this.setUsers(res);
                     return res;
                 }),
                 catchError(this.handleError));
     }
 
-    saveData(data: Data): any {
-        return this.http.put<ApiResponse>('/api/data', data, this.httpOptions)
+    saveUser(user: User): any {
+        return this.http.put<ApiResponse>('/api/users', user, this.httpOptions)
             .pipe(
                 map((res: any) => {
-                    this.setData(res.data);
+                    this.setUsers([res.user]);
                     return res;
                 }),
                 catchError(this.handleError));

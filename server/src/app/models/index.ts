@@ -1,1 +1,1 @@
-export { Data } from './data';
+export { User } from './user';

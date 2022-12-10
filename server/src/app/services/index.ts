@@ -1,2 +1,2 @@
-export { queryData } from './query-data';
-export { insertData} from './insert-data';
+export { queryUsers } from './query-users';
+export { insertUser} from './insert-user';
