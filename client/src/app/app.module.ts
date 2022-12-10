@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { UsersResolver } from '@resolvers/users.resolver';
 import { RouterService } from '@services/router.service';
 import { ApiService } from '@services/api.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserStateInterceptor } from '@interceptors/browser-state.interceptor';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserTransferStateModule,
     AppRoutingModule,
     HttpClientModule,
     MatIconModule,
@@ -49,9 +51,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     RouterService,
     UsersResolver,
     {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ApiHttpInterceptor,
-        multi: true
+      provide: HTTP_INTERCEPTORS,
+      useClass: BrowserStateInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHttpInterceptor,
+      multi: true
     },
   ],
   bootstrap: [AppComponent]
