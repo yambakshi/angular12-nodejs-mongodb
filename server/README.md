@@ -10,33 +10,39 @@ This project was generated with:
 - MongoDB NPM (NodeJS Driver) 4.2.2 ([MongoDB Compatibility](https://www.mongodb.com/docs/drivers/node/current/compatibility/))
 
 ## Setup
-`cd` into the project's `server` folder and do the following:
-1. Generate `package.json`
+1. `cd` into the project's root folder, create `server` folder and `cd` into it
+   ```
+   cd <project_folder>
+   mkdir server
+   cd server
+   ```
+
+2. Generate `package.json`
    ```
    npm init -y
    ```
 
-2. Create `src` and `log` folders
+3. Create `src` and `log` folders
    ```
    mkdir src log
    ```
 
-3. Create `.env` file for development environment
+4. Create `.env` file for development environment
    ```
    touch .env
    ```
 
-4. Create `tsconfig.json` and `tslint.json` files
+5. Create `tsconfig.json` and `tslint.json` files
    ```
    touch tsconfig.json tslint.json
    ```
 
-5. Install `typescript@4.3.5` globally
+6. Install `typescript@4.3.5` globally
    ```
    npm i typescript@4.3.5 -g
    ```
 
-6. Create entry point file `main.ts`
+7. Create entry point file `main.ts`
    ```
    touch src/main.ts
    ```

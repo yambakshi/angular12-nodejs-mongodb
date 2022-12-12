@@ -9,13 +9,18 @@ This project was generated with:
 - NPM 6.13.4
 
 ## Setup
-`cd` into the project's `client` folder and do the following:
-1. Install `Angular CLI` ([official instructions](https://angular.io/guide/setup-local))
+1. `cd` into the project's root folder
    ```
-   npm install -g @angular/cli
+   cd <project_folder>
+   mkdir client
    ```
 
-2. Create `client` app
+2. Install `Angular CLI` ([official instructions](https://angular.io/guide/setup-local))
+   ```
+   npm install -g @angular/cli@12.2.10
+   ```
+
+3. Create `client` app
    ```
    ng new client
    ```
@@ -23,7 +28,7 @@ This project was generated with:
    1. Input `y` when asked `Would you like to add Angular routing? (y/N)`
    2. Select `SCSS` when asked `Which stylesheet format would you like to use?`
 
-3. Add `Material UI` ([official instructions](https://material.angular.io/guide/getting-started))
+4. `cd` into the `client` folder and add `Material UI` ([official instructions](https://material.angular.io/guide/getting-started))
    ```
    cd client
    ng add @angular/material
@@ -34,12 +39,12 @@ This project was generated with:
    3. Input `y` when asked `Set up global Angular Material typography styles? (y/N)`
    4. Input `Y` when asked `Set up browser animations for Angular Material? (Y/n)`
 
-4. Add `Angular Universal` (SSR) ([official instructions](https://angular.io/guide/universal)) - Optional
+5. Add `Angular Universal` (SSR) ([official instructions](https://angular.io/guide/universal)) - Optional
    ```
    ng add @nguniversal/express-engine
    ```
 
-5. Add `NgRx` (state management) ([official instructions](https://ngrx.io/guide/store/install)) - Optional
+6. Add `NgRx` (state management) ([official instructions](https://ngrx.io/guide/store/install)) - Optional
    ```
    ng add @ngrx/store@12.5.1
    ```
