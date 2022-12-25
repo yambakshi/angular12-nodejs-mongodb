@@ -63,6 +63,11 @@ This project was generated with:
    db.createCollection("seed-users")
    ```
 
+- Truncate collection
+   ```
+   db['seed-users'].deleteMany({})
+   ```
+
 - Create 'dbAdmin' user
    ```
    db.createUser({ user: "seed-db-admin", pwd: "1234", roles: [{ role: "dbAdmin", db: "seed-db" }]})
